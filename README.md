@@ -1,2 +1,2 @@
-# scrape-it
+# Hockey-News
 Web Scraping
