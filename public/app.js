@@ -38,8 +38,9 @@ $.getJSON("/articles", function(data) {
         if (data.note) {
           // Place the title of the note in the title input
           $("#titleinput").val(data.note.title);
+          $("#comments").append("<h4>" + data.title + "</h4>");
           // Place the body of the note in the body textarea
-          $("#bodyinput").val(data.note.body);
+          $("#comments").append("<h6>" + data.note.title + data.note.body + "</h6>");
         }
       });
   });
@@ -48,6 +49,7 @@ $.getJSON("/articles", function(data) {
   $(document).on("click", "#savenote", function() {
     // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");
+    
   
     // Run a POST request to change the note, using what's entered in the inputs
     $.ajax({
